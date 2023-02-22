@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Projects from "./pages/projects"
+import Ideas from "./pages/Ideas"
 
 const App = () => {
   return (
@@ -8,7 +8,7 @@ const App = () => {
       <h1>Project Hub</h1>
       <BrowserRouter>
         <Routes>
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/ideas" element={<Ideas />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -15,8 +15,8 @@ app.use((req, res, next) => {
 })
 
 // routes
-const projectsRoutes = require('./routes/projects')
-app.use('/api/v1/projects', projectsRoutes)
+const ideasRoutes = require('./routes/ideas')
+app.use('/api/v1/ideas', ideasRoutes)
 
 // connection
 mongoose.connect(mongo)

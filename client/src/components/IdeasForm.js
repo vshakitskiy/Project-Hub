@@ -1,18 +1,21 @@
 import { useState } from "react"
 
+import { useIdeaContext } from "../hooks/useIdeaContext"
+
 const IdeasForm = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [team, setTeam] = useState('')
     const [error, setError] = useState(null)
+    const { dispatch } = useIdeaContext()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const project = { name, description, team }
-        const res = await fetch('/api/v1/projects', {
+        const idea = { name, description, team }
+        const res = await fetch('/api/v1/ideas', {
             method: 'POST',
-            body: JSON.stringify(project),
+            body: JSON.stringify(idea),
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -27,6 +30,10 @@ const IdeasForm = () => {
             setDescription('')
             setTeam('')
             setError('')
+            dispatch({
+                type: 'POST_IDEA',
+                payload: json
+            })
         }
     }
 
