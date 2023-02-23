@@ -39,21 +39,25 @@ const IdeasForm = () => {
 
     return (
         <div>
-            <h2>Создать идею</h2>
-            <form onSubmit={handleSubmit}>
+            <h2 className="ideas-heading">Зарегистрировать идею</h2>
+            <form onSubmit={handleSubmit} className='form'>
                 <input
+                    required={true}
                     type="text"
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                     placeholder="Название проекта"
                 />
-                <input
-                    type="text"
+                <textarea
+                    required={true}
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
                     placeholder="Описание проекта"
-                />
+                >
+
+                </textarea>
                 <input
+                    required={true}
                     type="number"
                     onChange={(e) => setTeam(e.target.value)}
                     value={team}

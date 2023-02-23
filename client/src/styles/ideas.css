@@ -1,0 +1,88 @@
+.ideas-heading {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.ideas-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* None */
+.ideas-none {
+    font-size: 30px;
+    max-width: 600px;
+    text-align: center;
+    margin-top: 100px;
+    color:rgb(186, 186, 186)
+}
+
+/* Idea */
+
+.idea-container {
+    margin-top: 20px;
+    background-color: #090909;
+    max-width: 700px;
+    padding: 10px 20px;
+    border: 1px solid rgb(30, 30, 30);
+    border-radius: 3px;
+}
+
+.idea-heading {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.idea-desc,
+.idea-team {
+    font-size: 20px;
+}
+
+.idea-desc {
+    margin-bottom: 10px;
+}
+
+.idea-type {
+    color: rgb(186, 186, 186);
+}
+
+/* Form */
+.form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input,
+button,
+textarea {
+    font-size: 20px;
+    border: 1px solid rgb(30, 30, 30);
+    background-color: #090909;
+    border-radius: 3px;
+    padding: 20px 10px 20px 10px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border: 1px solid #7F39FB;
+}
+
+button {
+    width: 300px;
+}
+
+button:hover {
+    border-color: #7F39FB;
+}
+
+input {
+    width: 500px;
+}
+
+textarea {
+    height: 300px;
+    resize: none;
+}
