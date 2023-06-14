@@ -44,7 +44,7 @@ const Header = () => {
                 <div className="flex flex-col items-center my-10 space-y-2">
                     <h3 className="text-[20px] mb-2 font-bold">{user.name} {user.surname}</h3>
                     <NavItem text="Профиль" link="/main/profile" />
-                    <NavItem text="Изменить профиль" link="/main/settings" />
+                    <p onClick={() => alert("Данная функция появится в полной реализации ProjectHub!")}>Изменить профиль</p>
                     <a href="/login" onClick={handleLogout}>
                         Выйти
                     </a>

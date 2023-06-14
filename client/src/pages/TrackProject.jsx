@@ -4,7 +4,6 @@ import { UserStateContext } from "../contexts/contexts"
 import axios from "axios"
 import ProjectHeading from "../components/ProjectHeading"
 import ProjectTeam from "../components/ProjectTeam"
-import { useNavigate } from "react-router-dom"
 
 const userUrl = "/api/users"
 const projectUrl = "/api/projects"
@@ -47,21 +46,23 @@ const TrackProject = () => {
         if (!projectId) return
         axios
             .get(`${projectUrl}/${projectId}`)
-            .then(res => setProject(res.data))
-        setLoaded(true)
+            .then(res => {
+                setProject(res.data)
+                setLoaded(true)
+            })
     }, [projectId])
 
     const handleRemove = () => {
         axios
             .delete(`${projectUrl}/${project.id}`, tokenHeader)
-        setTimeout(() => window.location.reload(), 500)
+        setTimeout(() => window.location.reload(), 750)
     }
 
     return <>
         <h2 className="text-[28px] text-center mt-[40px] font-bold mb-8">Трекер</h2>
         {!loaded
-            ? <h3>Загрузка...</h3>
-            : <>{project == null
+            ? <h3 className="text-center text-[20px]">Загрузка...</h3>
+            : <>{!project
                 ? <h3 className="text-center mt-36 text-gray text-[22px] w-[360px] mx-auto">Вы не состоите в проекте. Создайте или присоединитесь к проекту, чтобы разблокировать секцию.</h3>
                 : <div className="max-w-xs mx-auto">
                     <ProjectHeading project={project} />

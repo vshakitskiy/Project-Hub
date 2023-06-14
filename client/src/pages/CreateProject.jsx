@@ -27,15 +27,21 @@ const CreateProject = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(client)
         if (industry == "default" || client == "default") {
             setError({ error: "Отрасль или клиент не выбраны" })
             setTimeout(() => setError(null), 4000)
             return
         }
-
-        if (name.length < 2 || smdescription.length < 10 || description.length < 10) {
-            setError({ error: "Информация о проекте заполнена в неверном формате" })
+        if (name.length < 2) {
+            setError({ error: "Имя проекта должно быть не меньше 2 символов" })
+            setTimeout(() => setError(null), 4000)
+            return
+        } else if (smdescription.length < 10) {
+            setError({ error: "Краткое описание проекта должно быть не меньше 10 символов" })
+            setTimeout(() => setError(null), 4000)
+            return
+        } else if (description.length < 10) {
+            setError({ error: "Описание проекта должно быть не меньше 10 символов" })
             setTimeout(() => setError(null), 4000)
             return
         }
@@ -59,8 +65,13 @@ const CreateProject = () => {
 
     return (
         <>
-            <div className="h-9 mt-[1px]">
-                {error && <Notification message={error} />}
+            <div className="h-14 mt-[1px]">
+                {error
+                    ? <Notification message={error} />
+                    : <div className="bg-[#24170b] flex items-center pl-1 h-full border-2 border-[#a3853a] text-[#ba8039]">
+                        <p>Внимание: приложение ещё в разработке, заполняйте данные в корректном формате</p>
+                    </div>
+                }
             </div>
             <h2 className="text-[28px] text-center mt-[40px] font-bold mb-8">Новый проект</h2>
             <form onSubmit={handleSubmit} className=" max-w-xs mx-auto">
